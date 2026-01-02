@@ -1,0 +1,446 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background:
+        radial-gradient(circle at top, #0e3b5f, #020b14);
+    color: #e0f7fa;
+    overflow-x: hidden;
+}
+
+
+#loading {
+    position: fixed;
+    inset: 0;
+    background: #020b14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loader-text {
+    color: #00e5ff;
+    font-size: 1.5rem;
+    animation: pulse 1.5s infinite;
+}
+
+
+header {
+    height: 350px;
+    background:
+        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.9)),
+        url('image/banner.jpeg') center/cover fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+    text-shadow:
+        0 0 10px #00e5ff,
+        0 0 25px #7c4dff,
+        0 0 45px #1de9b6;
+    animation: glowText 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow:
+            0 0 8px #00eaff,
+            0 0 16px #00bfff,
+            0 0 30px #0077ff;
+    }
+    to {
+        text-shadow:
+            0 0 15px #00fff0,
+            0 0 30px #00ccff,
+            0 0 60px #00ffaa;
+    }
+}
+
+
+@keyframes floatText {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #001f2f, #000);
+    overflow: hidden;
+    background-image:  linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.9)), url("image/banner.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.avatar-title {
+    font-size: 6.5rem;
+    margin: 0;
+    color: #7df9ff;
+    cursor: pointer;
+    animation: glowPulse 4s infinite alternate;
+}
+
+.pandora-text {
+    margin-top: 12px;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    color: #9ffcff;
+    animation: floatText 3s ease-in-out infinite;
+}
+
+.easter-text {
+    display: none;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #6affc4;
+    text-shadow: 0 0 10px #00ffaa;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow:
+            0 0 10px #00eaff,
+            0 0 25px #00bfff;
+    }
+    to {
+        text-shadow:
+            0 0 20px #00fff0,
+            0 0 60px #00ffaa;
+    }
+}
+
+@keyframes floatText {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.particle {
+    position: fixed;
+    bottom: -10px;
+    width: 6px;
+    height: 6px;
+    background: #00ffaa;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #00ffaa;
+    animation: rise linear infinite;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(0) scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.night .avatar-title {
+    color: #b8a6ff;
+}
+
+.night .pandora-text {
+    color: #c9baff;
+}
+
+nav {
+    background: rgba(2,18,31,.95);
+    padding: 12px 24px;
+    display: flex;                  
+    justify-content: space-between; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 20px #00e5ff55;
+    z-index: 999;
+}
+
+nav a {
+    color: #4dd0e1;
+    margin: 0 18px;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg,#00e5ff,#7c4dff,#1de9b6);
+    transition: .4s;
+}
+nav a:hover::after { width: 100%; }
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nav-logo img {
+    width: 42px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #00e5ff);
+}
+
+.nav-logo span {
+    color: #7df9ff;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0 0 12px #00e5ff;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 30px;
+    animation: slideFade 1.5s ease;
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
+}
+
+.gallery div {
+    background: rgba(255,255,255,.05);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #00e5ff33;
+    transition: .6s;
+}
+
+.gallery div:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow:
+        0 0 25px #00e5ff,
+        0 0 45px #7c4dff,
+        0 0 65px #1de9b6;
+}
+
+.gallery img {
+    width: 100%;
+    transition: transform .6s;
+}
+.gallery div:hover img { transform: scale(1.2); }
+
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,.1);
+    color: white;
+}
+
+form button {
+    background: linear-gradient(90deg,#00e5ff,#7c4dff,#1de9b6);
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .4s;
+}
+form button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px #00e5ff;
+}
+
+footer {
+    background: #020b14;
+    padding: 15px;
+    text-align: center;
+    color: #80deea;
+}
+
+
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle,#1de9b6,transparent);
+    border-radius: 50%;
+    animation: floatUp 8s linear infinite;
+}
+
+
+@keyframes glowText {
+    from { text-shadow: 0 0 10px #00e5ff; }
+    to {
+        text-shadow:
+        0 0 15px #00e5ff,
+        0 0 35px #7c4dff,
+        0 0 55px #1de9b6;
+    }
+}
+@keyframes slideFade {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes floatUp {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+@keyframes dna {
+    from { transform: scaleY(.5); }
+    to { transform: scaleY(1.2); }
+}
+@keyframes pulse {
+    0%,100% { opacity: .3; }
+    50% { opacity: 1; }
+}
+
+
+#audioControl {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: radial-gradient(circle,#1de9b6,#00e5ff,#7c4dff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 999;
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0%,100% { box-shadow: 0 0 15px #00e5ff; }
+    50% {
+        box-shadow:
+        0 0 25px #00e5ff,
+        0 0 45px #7c4dff,
+        0 0 65px #1de9b6;
+    }
+}
+
+
+body.day {
+    background: radial-gradient(circle at top, #1e88e5, #0b1d2a);
+}
+
+body.night {
+    background: radial-gradient(circle at top, #0e1b2e, #020b14);
+}
+
+
+body.night header h1 {
+    text-shadow:
+        0 0 15px #7c4dff,
+        0 0 35px #1de9b6,
+        0 0 55px #00e5ff;
+}
+
+
+.ritual {
+    animation: ritualGlow 0.8s infinite alternate;
+}
+
+@keyframes ritualGlow {
+    from {
+        text-shadow:
+            0 0 20px #00e5ff,
+            0 0 40px #7c4dff;
+    }
+    to {
+        text-shadow:
+            0 0 30px #1de9b6,
+            0 0 60px #00e5ff,
+            0 0 90px #7c4dff;
+    }
+}
+
+.about-avatar {
+    padding: 100px 10%;
+    background: linear-gradient(180deg, #00121c, #000);
+    color: #dffcff;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+    color: #7df9ff;
+    text-shadow: 0 0 15px #00eaff;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #c8f7ff;
+}
+
+
+.about-image {
+    flex: 1;
+    position: relative;
+}
+
+.about-image img {
+    width: 70%;
+    border-radius: 25px;
+    box-shadow:
+        0 0 30px rgba(0,255,255,0.3),
+        0 0 60px rgba(0,180,255,0.2);
+    transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 668px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+} 
